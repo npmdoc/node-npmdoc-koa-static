@@ -1,0 +1,181 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a href="https://github.com/koajs/static#readme">koa-static (v3.0.0)</a>
+</h1>
+<h4>Static file serving middleware for koa</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.koa-static">module koa-static</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.koa-static.koa-static">
+            function <span class="apidocSignatureSpan"></span>koa-static
+            <span class="apidocSignatureSpan">(root, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.koa-static.toString">
+            function <span class="apidocSignatureSpan">koa-static.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.koa-static.toString">module koa-static.toString</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.koa-static.toString.toString">
+            function <span class="apidocSignatureSpan">koa-static.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.koa-static" id="apidoc.module.koa-static">module koa-static</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.koa-static.koa-static" id="apidoc.element.koa-static.koa-static">
+        function <span class="apidocSignatureSpan"></span>koa-static
+        <span class="apidocSignatureSpan">(root, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function serve(root, opts) {
+  opts = opts || {};
+
+  assert(root, 'root directory is required to serve files');
+
+  // options
+  debug('static "%s" %j', root, opts);
+  opts.root = resolve(root);
+  if (opts.index !== false) opts.index = opts.index || 'index.html';
+
+  if (!opts.defer) {
+    return function serve(ctx, next){
+      if (ctx.method == 'HEAD' || ctx.method == 'GET') {
+        return send(ctx, ctx.path, opts).then(done =&gt; {
+          if (!done) {
+            return next();
+          }
+        });
+      }
+      return next();
+    };
+  }
+
+  return function serve(ctx, next){
+    return next().then(() =&gt; {
+      if (ctx.method != 'HEAD' &amp;&amp; ctx.method != 'GET') return;
+      // response is already handled
+      if (ctx.body != null || ctx.status != 404) return;
+
+      return send(ctx, ctx.path, opts);
+    });
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.koa-static.toString" id="apidoc.element.koa-static.toString">
+        function <span class="apidocSignatureSpan">koa-static.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toString = function () {
+    return text;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.koa-static.toString" id="apidoc.module.koa-static.toString">module koa-static.toString</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.koa-static.toString.toString" id="apidoc.element.koa-static.toString.toString">
+        function <span class="apidocSignatureSpan">koa-static.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function toString() { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>
