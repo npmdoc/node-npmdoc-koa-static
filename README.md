@@ -1,4 +1,7 @@
-# api documentation for  [koa-static (v3.0.0)](https://github.com/koajs/static#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-koa-static.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-koa-static) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-koa-static.svg)](https://travis-ci.org/npmdoc/node-npmdoc-koa-static)
+# npmdoc-koa-static
+
+#### basic api documentation for  [koa-static (v3.0.0)](https://github.com/koajs/static#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-koa-static.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-koa-static) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-koa-static.svg)](https://travis-ci.org/npmdoc/node-npmdoc-koa-static)
+
 #### Static file serving middleware for koa
 
 [![NPM](https://nodei.co/npm/koa-static.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/koa-static)
@@ -93,7 +96,8 @@
         "test-cov": "node --harmony ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha",
         "test-travis": "node --harmony ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha --report lcovonly"
     },
-    "version": "3.0.0"
+    "version": "3.0.0",
+    "bin": {}
 }
 ```
 
